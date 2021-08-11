@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+    
+<body>
+    <div class="login">
+        <h1>Power Consumption Analysis for Households</h1>
+    
+        
+        <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Global_active_power" placeholder="Global_active_power" required="required" />
+        <input type="text" name="Global_reactive_power" placeholder="Global_reactive_power" required="required" />
+		<input type="text" name="Voltage" placeholder="Voltage" required="required" />
+		<input type="text" name="Global_intensity" placeholder="Global_intensity" required="required" />
+		<input type="text" name="Sub_metering_1" placeholder="Sub_metering_1" required="required" />
+		<input type="text" name="Sub_metering_2" placeholder="Sub_metering_2" required="required" />
+		<input type="text" name="Sub_metering_3" placeholder="Sub_metering_3" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+        
+    <br>
+    <br>
+    
+    {{ Prediction_text }}
+    
+    </div>
+</body>
+</html>
